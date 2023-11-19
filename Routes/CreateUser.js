@@ -19,7 +19,7 @@ const createUserValidation = [
     .isString()
     .isLength({ min: 6 })
     .withMessage("Password should be at least 6 characters long"),
-  body("location").isString(),
+
 ];
 
 // Validation middleware for logging in a user
@@ -49,7 +49,6 @@ router.post("/createuser", createUserValidation, async (req, res) => {
       name: req.body.name,
       password: secPassword,
       email: req.body.email,
-      location: req.body.location || "Unknown",
     });
 
     // Save the user document to the "users" collection
